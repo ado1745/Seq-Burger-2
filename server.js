@@ -13,12 +13,14 @@ app.engine(
 );
 app.set('view engine', 'handlebars');
 
+// Setting static folder
+app.use(express.static('public'));
+
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Setting static folder
-app.use(express.static('public'));
+
 
 const routes = require('./controllers/burgers_controller');
 app.use(routes);
